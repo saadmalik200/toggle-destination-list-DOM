@@ -2,6 +2,7 @@
 const body = document.querySelector("body");
 const h1 = document.createElement("h1");
 const p = document.createElement("p");
+const p2 = document.createElement("p");
 const button = document.createElement("button");
 const ul = document.createElement("ul");
 const li1 = document.createElement("li");
@@ -17,6 +18,8 @@ h1.classList.add("text-center", "p-2", "mt-4", "fs-1");
 // Add Paragraph
 p.textContent = "Toggle the list of my favourite destinations";
 p.classList.add("p-2", "mt-4", "fs-5", "mx-4", "bg-info");
+
+p2.classList.add("p-2", "mt-4", "fs-5", "mx-4", "bg-success", "bg-opacity-50");
 
 // Add Button
 button.classList.add("btn", "btn-primary", "m-4");
@@ -53,4 +56,16 @@ body.append(h1, p, ul, button);
 
 button.addEventListener("click", () => {
   ul.classList.toggle("d-none");
+});
+
+ul.addEventListener("click", (e) => {
+  //   e.target.classList.toggle("active");
+
+  if (e.target.tagName === "LI") {
+    // e.target.remove();
+    e.target.classList.toggle("active");
+    p2.textContent = `You selected ${e.target.textContent}`;
+    button.textContent = "Hide destinations";
+    body.append(p2);
+  }
 });
