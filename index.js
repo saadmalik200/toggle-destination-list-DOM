@@ -11,6 +11,9 @@ const li3 = document.createElement("li");
 const li4 = document.createElement("li");
 const li5 = document.createElement("li");
 
+// Add Class to body
+body.classList.add("container", "position-relative");
+
 // Add h1 element
 h1.textContent = "My Favourite Destinations";
 h1.classList.add("text-center", "p-2", "mt-4", "fs-1");
@@ -22,7 +25,7 @@ p.classList.add("p-2", "mt-4", "fs-5", "mx-4", "bg-info");
 p2.classList.add("p-2", "mt-4", "fs-5", "mx-4", "bg-success", "bg-opacity-50");
 
 // Add Button
-button.classList.add("btn", "btn-primary", "m-4");
+button.classList.add("btn", "btn-primary", "mx-4", "mt-3");
 button.textContent = "Show destinations";
 
 // Add ul
@@ -55,7 +58,14 @@ ul.append(li1, li2, li3, li4, li5);
 body.append(h1, p, ul, button);
 
 button.addEventListener("click", () => {
+  button.textContent = "Hide destinations";
   ul.classList.toggle("d-none");
+  if (ul.classList.contains("d-none")) {
+    button.textContent = "Show destinations";
+    Array.from(ul.children).forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
 });
 
 ul.addEventListener("click", (e) => {
@@ -63,9 +73,12 @@ ul.addEventListener("click", (e) => {
 
   if (e.target.tagName === "LI") {
     // e.target.remove();
-    e.target.classList.toggle("active");
+    Array.from(ul.children).forEach((item) => {
+      item.classList.remove("active");
+    });
     p2.textContent = `You selected ${e.target.textContent}`;
-    button.textContent = "Hide destinations";
-    body.append(p2);
+    ul.append(p2);
+
+    e.target.classList.toggle("active");
   }
 });
