@@ -2,7 +2,12 @@
 
 Create a list of your favourite destinations with a button to toggle the list
 
+## Link
+
+- Live Site URL: [https://saadmalik200.github.io/toggle-destination-list-DOM/](https://saadmalik200.github.io/toggle-destination-list-DOM/)
+
 **Requirements:**
+
 - use Bootstrap CDN
 - use `Element.classList` methods
 
@@ -17,5 +22,3 @@ Create a list of your favourite destinations with a button to toggle the list
 - Style the list to your pleasing.
 
 ![screenshot](select.gif)
-
-
